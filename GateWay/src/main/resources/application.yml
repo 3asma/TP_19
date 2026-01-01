@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: r1
+            uri: lb://SERVICE-CLIENT
+            predicates:
+              - Path=/clients
+          - id: r2
+            uri: lb://SERVICE-CLIENT
+            predicates:
+              - Path=/client/{id}
+          - id: r3
+            uri: lb://SERVICE-VOITURE
+            predicates:
+              - Path=/voitures
